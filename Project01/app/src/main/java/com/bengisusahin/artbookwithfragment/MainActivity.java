@@ -11,12 +11,34 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+    ArtListFragment artListFragment = new ArtListFragment();
+    ArrayList<Art> artArrayList;
+    ArtListAdapter artListAdapter;
+    public MainActivity() {
+        super(R.layout.activity_main);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.frame_layout, ArtListFragment.class, null)
+                    .commit();
+        }
+
+        artListAdapter = new ArtListAdapter(artArrayList);
+
+
+        //artListFragment = new ArtListFragment();
+        //fragmentTransaction.replace(R.id.frame_layout, artListFragment).commit();
     }
 
     @Override
@@ -29,9 +51,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.add_art_menu){
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
             AddArtFragment addArtFragment = new AddArtFragment();
             fragmentTransaction.replace(R.id.frame_layout, addArtFragment).commit();
         }
