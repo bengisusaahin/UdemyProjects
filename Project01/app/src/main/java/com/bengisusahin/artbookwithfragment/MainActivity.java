@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-
+            AddArtFragment addArtFragment = new AddArtFragment();
+            fragmentTransaction.replace(R.id.frame_layout, addArtFragment).commit();
         }
 
         return super.onOptionsItemSelected(item);
