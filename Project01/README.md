@@ -1,1 +1,1 @@
-Fragment, Navigation, recyclerView and SQLite used.
+Fragment, Navigation, recyclerView, and SQLite are used.
