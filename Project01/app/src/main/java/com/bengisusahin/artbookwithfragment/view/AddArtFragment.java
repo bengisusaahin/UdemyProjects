@@ -9,14 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bengisusahin.artbookwithfragment.R;
+import com.bengisusahin.artbookwithfragment.databinding.FragmentAddArtBinding;
 
 
 public class AddArtFragment extends Fragment {
+
+    private FragmentAddArtBinding fragmentAddArtBinding;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_art, container, false);
+        fragmentAddArtBinding = FragmentAddArtBinding.inflate(getLayoutInflater(),container,false);
+        View view = fragmentAddArtBinding.getRoot();
+        return view;
+    }
+
+    public void save(View view){
+
     }
 }
