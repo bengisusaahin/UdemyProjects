@@ -9,7 +9,7 @@
         android:id="@+id/recyclerViewTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test"
+        android:text="Test"
         android:textSize="22sp"
         android:textColor="#131F63"
         >

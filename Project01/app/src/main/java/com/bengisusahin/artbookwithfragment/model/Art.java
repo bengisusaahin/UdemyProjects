@@ -1,4 +1,4 @@
-package com.bengisusahin.artbookwithfragment;
+package com.bengisusahin.artbookwithfragment.model;
 
 public class Art {
     String name;

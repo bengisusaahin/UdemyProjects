@@ -1,4 +1,4 @@
-package com.bengisusahin.artbookwithfragment;
+package com.bengisusahin.artbookwithfragment.view;
 
 import android.os.Bundle;
 

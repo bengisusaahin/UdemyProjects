@@ -1,13 +1,13 @@
-package com.bengisusahin.artbookwithfragment;
+package com.bengisusahin.artbookwithfragment.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bengisusahin.artbookwithfragment.databinding.RecyclerRowBinding;
+import com.bengisusahin.artbookwithfragment.model.Art;
 
 import java.util.ArrayList;
 
@@ -28,6 +28,7 @@ public class ArtListAdapter extends RecyclerView.Adapter<ArtListAdapter.ArtHolde
 
     @Override
     public void onBindViewHolder(@NonNull ArtHolder artHolder, final int position) {
+        //artHolder.binding.recyclerViewTextView.setText(artArrayList.get(position).);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class ArtListAdapter extends RecyclerView.Adapter<ArtListAdapter.ArtHolde
     }
 
     public class ArtHolder extends RecyclerView.ViewHolder {
-        private final RecyclerRowBinding binding;
+        private RecyclerRowBinding binding;
         public ArtHolder(RecyclerRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
