@@ -28,7 +28,6 @@ public class ArtListAdapter extends RecyclerView.Adapter<ArtListAdapter.ArtHolde
 
     @Override
     public void onBindViewHolder(@NonNull ArtHolder artHolder, final int position) {
-
     }
 
     @Override

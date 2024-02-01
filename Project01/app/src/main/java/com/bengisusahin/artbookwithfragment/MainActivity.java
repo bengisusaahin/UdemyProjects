@@ -10,15 +10,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.bengisusahin.artbookwithfragment.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-    ArtListFragment artListFragment = new ArtListFragment();
+    private ActivityMainBinding activityMainBinding;
     ArrayList<Art> artArrayList;
     ArtListAdapter artListAdapter;
     public MainActivity() {
@@ -27,18 +26,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.frame_layout, ArtListFragment.class, null)
-                    .commit();
-        }
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = activityMainBinding.getRoot();
+        setContentView(view);
 
+        artArrayList = new ArrayList<>();
+         
         artListAdapter = new ArtListAdapter(artArrayList);
+        ArtListFragment artListFragment = new ArtListFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-
-        //artListFragment = new ArtListFragment();
-        //fragmentTransaction.replace(R.id.frame_layout, artListFragment).commit();
+        if (savedInstanceState == null) {
+            fragmentManager.beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.frame_layout, artListFragment, null)
+                    .commit();
+       }
     }
 
     @Override
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.add_art_menu){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             AddArtFragment addArtFragment = new AddArtFragment();
             fragmentTransaction.replace(R.id.frame_layout, addArtFragment).commit();
         }
