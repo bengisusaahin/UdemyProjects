@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -35,6 +36,7 @@ android {
 }
 
 dependencies {
+    val navVersion = "2.7.6"
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -44,4 +46,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+
+    // Java language implementation
+    implementation ("androidx.navigation:navigation-fragment:$navVersion")
+    implementation ("androidx.navigation:navigation-ui:$navVersion")
 }

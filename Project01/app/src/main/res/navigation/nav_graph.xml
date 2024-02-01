@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/artListFragment">
+
+    <fragment
+        android:id="@+id/addArtFragment"
+        android:name="com.bengisusahin.artbookwithfragment.AddArtFragment"
+        android:label="fragment_add_art"
+        tools:layout="@layout/fragment_add_art" >
+        <action
+            android:id="@+id/action_addArtFragment_to_artListFragment"
+            app:destination="@id/artListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artListFragment"
+        android:name="com.bengisusahin.artbookwithfragment.ArtListFragment"
+        android:label="fragment_art_list"
+        tools:layout="@layout/fragment_art_list" >
+        <action
+            android:id="@+id/action_artListFragment_to_addArtFragment"
+            app:destination="@id/addArtFragment" />
+    </fragment>
+</navigation>

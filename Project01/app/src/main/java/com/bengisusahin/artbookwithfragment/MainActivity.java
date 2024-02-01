@@ -20,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;
     ArrayList<Art> artArrayList;
     ArtListAdapter artListAdapter;
-    public MainActivity() {
-        super(R.layout.activity_main);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         artArrayList = new ArrayList<>();
-         
+
         artListAdapter = new ArtListAdapter(artArrayList);
         ArtListFragment artListFragment = new ArtListFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
                     .setReorderingAllowed(true)
-                    .replace(R.id.frame_layout, artListFragment, null)
+                    .replace(R.id.fragment, artListFragment, null)
                     .commit();
        }
     }
@@ -57,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             AddArtFragment addArtFragment = new AddArtFragment();
-            fragmentTransaction.replace(R.id.frame_layout, addArtFragment).commit();
+            fragmentTransaction.replace(R.id.fragment, addArtFragment).commit();
         }
 
         return super.onOptionsItemSelected(item);
